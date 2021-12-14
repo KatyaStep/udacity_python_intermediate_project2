@@ -16,10 +16,10 @@ class IngestorInterface(ABC):
         cls.current_file = extension
         return extension in cls.allowed_extensions
 
-    # @abstractmethod
-    # def parse(self, path: str) -> list[QuoteModel]:
-    #     """ An abstract method "parse"  for parsing file content."""
-    #     pass
+    @abstractmethod
+    def parse(self, path: str) -> list():
+        """ An abstract method "parse"  for parsing file content."""
+        pass
 
 
 

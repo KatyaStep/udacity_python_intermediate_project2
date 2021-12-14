@@ -1,7 +1,9 @@
 from IngestorInterface import IngestorInterface
 
-class PDFIngestor(IngestorInterface):
+
+class DocxIngestor(IngestorInterface):
     @classmethod
     def parse(cls, path):
         # TODO: add a docstring
-        print('hello there.It"s pdf parser!')
+        print('hello there.It"s docx parser!')
+        return []
