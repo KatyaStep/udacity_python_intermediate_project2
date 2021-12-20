@@ -34,7 +34,7 @@
         * If any argument is not defined, a random selection is used.
 
 * requirements.txt
-* tests folder - it contains two test, that was written in the beginning of the project. Do not use these test to verify functions of the project.
+* tests folder - contains two test, that was written in the beginning of the project. Do not use these test to verify functions of the project.
 
 
 # How to set up and run the program
