@@ -1,12 +1,24 @@
-from PIL import Image, ImageDraw, ImageFont
+""" meme_engine class with the following responsibility:
+    - loading a file from disk
+    - transform image by resizing to a maximum  width of 500px
+     while maintaining the input aspect ratio
+    - Add a caption to an image (string input) with a body and author
+    to a random location on the image.
+"""
+
 import os
+import textwrap
+
+from PIL import Image, ImageDraw, ImageFont
 
 
 class MemeEngine:
     """meme_engine class with the following responsibility:
         - loading a file from disk
-        - transform image by resizing to a maximum  width of 500px while maintaining the input aspect ratio
-        - Add a caption to an image (string input) with a body and author to a random location on the image.
+        - transform image by resizing to a maximum  width of 500px
+        while maintaining the input aspect ratio
+        - Add a caption to an image (string input) with a body and author
+        to a random location on the image.
     """
     def __init__(self, output_dir):
         self.output_dir = output_dir
@@ -20,9 +32,12 @@ class MemeEngine:
         img = image.resize((width, height), Image.NEAREST)
 
         if text is not None:
+
             draw = ImageDraw.Draw(img)
             font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
-            quote = text + ' ' + author
+            value = text + '. ' + author
+            wrapper = textwrap.TextWrapper(width=50)
+            quote = wrapper.fill(text=value)
             draw.text((10, 30), quote, font=font, fill='white')
 
         path = None
@@ -35,4 +50,3 @@ class MemeEngine:
             print(str(exc))
 
         return path
-
